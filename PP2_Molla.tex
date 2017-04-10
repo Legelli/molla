@@ -17,6 +17,7 @@
 \usepackage{float}
 \usepackage{esvect} %vettori
 \usepackage{longtable} %tabelle lunghe
+\usepackage{caption}
 
 \setcounter{section}{-1}
 
@@ -143,7 +144,18 @@ Analogamente a quanto appena detto, per poter calcolare l'accelerazione gravitaz
 \end{equation}
 dove si è usata la stessa notazione di sopra.
 
-Misuriamo quindi la massa complessiva prima di $5$ e poi di $10$ campioni usando una bilancia di risoluzione non massima tra quelle a disposizione a causa della portata limitata di quella più accurata; per via della risoluzione al decimo di grammo ripetendo le misure non si apprezzano variazioni, le masse integrali dei campioni sono riportate nella Tabella \ref{tab:massa}. Misuriamo poi l'allungamento della molla quando ad essa vengono appesi i campioni, ripetendo le misure $5$ volte ed ottenendo le misure riportate nella Tabella \ref{tab:allungamento}. Eseguiamo quindi $50$ misure ripetute di $5$ periodi di oscillazione e successivamente $5$ misure ripetute di $50$ periodi di oscillazione, applicando prima $5$ e poi $10$ campioni, riportiamo i risultati rispettivamente nella Tabella \ref{tab:5oscillazioni} e nella Tabella \ref{tab:50oscillazioni}, ai quali associamo gli istogrammi in Figura \ref{fig:ist_5dischi} e in Figura \ref{fig:ist_10disci}.
+Misuriamo quindi la massa complessiva prima di $5$ e poi di $10$ campioni usando una bilancia di risoluzione non massima tra quelle a disposizione a causa della portata limitata di quella più accurata; per via della risoluzione al decimo di grammo ripetendo le misure non si apprezzano variazioni, le masse integrali dei campioni sono riportate nella Tabella \ref{tab:massa}. Misuriamo poi l'allungamento della molla quando ad essa vengono appesi i campioni, ripetendo le misure $5$ volte ed ottenendo le misure riportate nella Tabella \ref{tab:allungamento}. Eseguiamo quindi $50$ misure ripetute di $5$ periodi di oscillazione e successivamente $5$ misure ripetute di $50$ periodi di oscillazione, applicando prima $5$ e poi $10$ campioni, riportiamo i risultati rispettivamente nella Tabella \ref{tab:5oscillazioni} e nella Tabella \ref{tab:50oscillazioni}, ai quali associamo gli istogrammi in Figura \ref{fig:ist_5dischi} e in Figura \ref{fig:ist_10dischi}.
+
+\begin{figure}[p]
+\centering
+\caption{Istogramma periodo oscillazione di 5 dischetti}
+\label{fig:ist_5dischi}
+\includegraphics[scale=0.6]{istogramma_5_dischi.eps}
+
+\caption{Istogramma periodo oscillazione di 10 dischetti}
+\label{fig:ist_10dischi}
+\includegraphics[scale=0.6]{istogramma_10_dischi.eps}
+\end{figure}
 
 Dalle misure prese è possibile calcolare immediatamente il periodo di oscillazione associato a 5 e a 10 campioni dividendo la misura di tempo misurata per il numero di oscillazioni contate; calcolando tale grandezza a partire dalla media delle misure associamo al singolo periodo un'incertezza data da
 \begin{equation}\label{eq:delta_T}
@@ -234,7 +246,7 @@ Con il periodo ricavato dalla misura di 5 oscillazioni, la miglior stima che pos
 %============= METODO 2 =================================
 \subsection{Metodo 2}
 \label{subsec:metodo2}
-Adottiamo ora un metodo grafico per ricavare $k$ e $g$: misuriamo in modo integrale la massa dei dischetti e dunque l'allungamento della molla aggiungendoli progressivamente. Eseguiamo al contempo per ogni campione aggiunto $20$ misure ripetute del tempo impiegato per compiere $10$ oscillazioni (i dati sperimentali raccolti sono riportati nelle tabelle~\ref{tab:metodo2_allungamento-massa} e \ref{tab:metodo2_periodo}). 
+Adottiamo ora un metodo grafico per ricavare $k$ e $g$: misuriamo in modo integrale la massa dei dischetti e dunque l'allungamento della molla aggiungendoli progressivamente. Eseguiamo al contempo per ogni campione aggiunto $20$ misure ripetute del tempo impiegato per compiere $10$ oscillazioni (i dati sperimentali raccolti sono riportati nelle tabelle~\ref{tab:metodo2_allungamento},  \ref{tab:massa} e \ref{tab:periodo}). 
 
 Poiché il quadrato del periodo di oscillazione e l'allungamento della molla sono direttamente proporzionali alla massa appesa ad essa, secondo coefficienti di proporzionalità legati alle costanti oggetto di indagine, in particolare
 	\begin{align*}
@@ -564,7 +576,7 @@ I & 77.70 \\
 
 \begin{table}[h]
 \label{tab:periodo}
-\caption{20 misure dei periodi d'oscillazione misurati rispetto alle masse integrali, incertezza $=\pm 0.003$}
+\caption{20 misure dei periodi di 10 oscillazioni misurati rispetto alle masse integrali, incertezza $=\pm 0.003$}
 \centering
 \begin{tabular}{ccccccccccc}
   \hline
@@ -597,7 +609,7 @@ I & 77.70 \\
 
 \begin{table}[h]
 \caption{5 misure dell'allungamento della molla sotto l'effetto della forza peso esercitata dalle masse integrali, incertezza $=\pm 0.5$}
-\label{tab:allungamento}
+\label{tab:metodo2_allungamento}
 \centering
 \begin{tabular}{ccccccccccc}
   \hline
