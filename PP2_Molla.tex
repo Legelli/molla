@@ -128,7 +128,12 @@ I dati sperimentali sono riportati nelle tabelle~\ref{tab:metodo1_allungamento-m
 \label{subsec:metodo2}
 Adottiamo ora un metodo grafico per ricavare $k$ e $g$: misuriamo in modo integrale la massa dei dischetti e dunque l'allungamento della molla aggiungendoli progressivamente. Eseguiamo al contempo per ogni campione aggiunto $20$ misure ripetute del tempo impiegato per compiere $10$ oscillazioni (i dati sperimentali raccolti sono riportati nelle tabelle~\ref{tab:metodo2_allungamento-massa} e \ref{tab:metodo2_periodo}). 
 
-Poiché il quadrato del periodo di oscillazione e l'allungamento della molla sono direttamente proporzionali alla massa appesa ad essa, secondo coefficienti di proporzionalità legati alle costanti oggetto di indagine, tracciamo il grafico (figura~\ref{fig:periodoquadro-massa}) di $T^2$ in funzione della massa $m$, e quello (figura~\ref{fig:xeq-massa}) dell'allungamento in funzione della massa $m$. Estraiamo dunque i coefficienti angolari delle rette che meglio approssimano i punti sperimentali, chiamati rispettivamente $\alpha_1$ e $\alpha_2$. Noti tali valori, possiamo calcolare la costante elastica dall'equazione
+Poiché il quadrato del periodo di oscillazione e l'allungamento della molla sono direttamente proporzionali alla massa appesa ad essa, secondo coefficienti di proporzionalità legati alle costanti oggetto di indagine, in particolare
+	\begin{align*}
+	T^2 &= T_0^2 + \alpha_1 m \\
+	x &= \bar{x_0} + \alpha_2 m,
+	\end{align*}
+tracciamo il grafico (figura~\ref{fig:periodoquadro-massa}) di $T^2$ in funzione della massa $m$, e quello (figura~\ref{fig:xeq-massa}) dell'allungamento in funzione della massa $m$. Estraiamo dunque i coefficienti angolari delle rette che meglio approssimano i punti sperimentali, chiamati rispettivamente $\alpha_1$ e $\alpha_2$. Noti tali valori, possiamo calcolare la costante elastica dall'equazione
 	\[
 	k = \frac{4\pi^2}{\alpha_1}
 	\]
@@ -139,10 +144,10 @@ e l'accelerazione gravitazionale da
 
 Per il calcolo di $\alpha_1$, scegliamo sulla retta interpolatrice (figura~\ref{fig:periodoquadro-massa}) i seguenti punti
 	\begin{align*}
-	m_1 = \SI{180.00}{g}, \qquad & (T^2)_1 = \SI{0.20}{s^2}; \\
-	m_2 = \SI{810.00}{g}, \qquad & (T^2)_2 = \SI{0.76}{s^2};
+	m_1 = \SI{180.00}{g}, \qquad & T^2_1 = \SI{0.20}{s^2}; \\
+	m_2 = \SI{810.00}{g}, \qquad & T^2_2 = \SI{0.76}{s^2};
 	\end{align*}
-dunque $\alpha_1 = \SI{8.88\pm0.02 e-4}{\frac{s^2}{g}}$. L'incertezza su questo valore è stata valutata ricordando che stiamo calcolando il rapporto tra $\Delta(T^2) = (T^2)_2 - (T^2)_1$ e $\Delta m = m_2 - m_1$, dunque si ha
+dunque $\alpha_1 = \SI{8.88\pm0.02 e-4}{s^2/g}$. L'incertezza su questo valore è stata valutata ricordando che stiamo calcolando il rapporto tra $\Delta(T^2) = (T^2)_2 - (T^2)_1$ e $\Delta m = m_2 - m_1$, dunque si ha
 	\[
 	\sigma_{\alpha_1} = \sqrt{\left(\frac{\sigma_{\Delta (T^2)}}{\Delta(T^2)}\right)^2 + \left(\frac{\sigma_{\Delta m}}{\Delta m}\right)^2} \cdot \alpha_1,
 	\]
@@ -150,13 +155,11 @@ dove
 	\[
 	\sigma^2_{\Delta(T^2)} = (2T_2\delta_{T_2})^2 + (2T_1\delta_{T_1})^2,
 	\]
-usando come incertezza sul periodo $\delta_T = \frac{1}{10}\sqrt{(\sigma_T/\sqrt{20})^2 + u_T^2}$ (con $\sigma_T$ la deviazione standard del punto sperimentale più vicino al punto della retta scelto e $u_T$ l'incertezza strumentale sul periodo), e 
+usando come incertezza sul periodo $\delta_T = \sqrt{(\sigma_T/\sqrt{20})^2 + u_T^2} / 10$ (con $\sigma_T$ la deviazione standard del punto sperimentale più vicino al punto della retta scelto e $u_T$ l'incertezza strumentale sul periodo), e 
 	\[
 	\sigma^2_{\Delta m} = 2\sigma_m^2
 	\] 
-(con $\sigma_m$ l'incertezza strumentale sulla massa).	
-	
-	
+(con $\sigma_m$ l'incertezza strumentale sulla massa).		
 Perciò otteniamo la costante elastica della molla
 	\[
 	\boxed{\textbf{$k$ = {\SI{44.4 \pm 0.1}{\frac{N}{m}}}}},
@@ -180,17 +183,16 @@ dove $\Delta x = x_2 - x_1$, $\Delta m = m_2 - m_1$, l'incertezza su $\Delta m$ 
 	\sigma_{\Delta x} = \sqrt{2 \delta^2_x},
 	\]
 con $\delta_x = \sqrt{\left(\frac{\sigma_x}{\sqrt{5}}\right)^2 + u_x^2}$, indicando con $\sigma_x$ la deviazione standard sulle $5$ misure di allungamento eseguite per ogni campione e con $u_x$ l'incertezza di lettura sulla carta millimetrata.
-
 Otteniamo quindi l'accelerazione di gravità
 	\[
 	\boxed{\textbf{$g$ = {\SI{9.55 \pm 0.04}{\frac{m}{s^2}}}}},
 	\]
 dove l'incertezza è stata propagata con l'equazione
 	\[
-	\sigma_g = \sqrt{\left(\frac{\alpha_2 \sigma_{\alpha_1}}{\alpha_1^2}\right)^2 + \left(\frac{4\pi^2}{\alpha_1}\sigma_{\alpha_2}\right)^2}.
+	\sigma_g = \sqrt{\left(\frac{\alpha_2}{\alpha_1^2}\sigma_{\alpha_1}\right)^2 + \left(\frac{4\pi^2}{\alpha_1}\sigma_{\alpha_2}\right)^2}.
 	\]
 
-Riteniamo che la causa principale della discrepanza dei valori trovati con i valori veri provenga dalla qualità della nostra interpolazione manuale; infatti, utilizzando l'algoritmo di interpolazione del software \emph{R}, ricaviamo valori più precisi dei coefficienti angolari, da cui si ottengono (assumendo le medesime incertezze calcolate poc'anzi) 
+Riteniamo che la causa principale della discrepanza dei valori trovati con i \emph{valori veri} provenga dalla qualità della nostra interpolazione manuale; infatti, utilizzando l'algoritmo di interpolazione del software \emph{R}, ricaviamo valori più precisi dei coefficienti angolari, da cui si ottengono (assumendo le medesime incertezze calcolate poc'anzi) 
 	\begin{align*}
 	k &= \SI{45.8 \pm 0.1}{\frac{N}{m}} \\
 	g &= \SI{9.84 \pm 0.04}{\frac{m}{s^2}},
