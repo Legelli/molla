@@ -4,7 +4,7 @@
 \usepackage[latin1]{inputenc} 
 \usepackage[italian]{babel}
 \usepackage{siunitx} %Inserisce automaticamente i dati con le unità di misura correttamente formattate del SI (utilizzo: \SI{0.82}{m^2}, in generale \SI{misura con il punto decimale}{unità di misura})
-\sisetup{output-decimal-marker = {.}, separate-uncertainty = true, input-uncertainty-signs = \pm, detect-weight=true, detect-family=true} %per usare SI con la virgola decimale
+\sisetup{output-decimal-marker = {,}, separate-uncertainty = true, input-uncertainty-signs = \pm, detect-weight=true, detect-family=true} %per usare SI con la virgola decimale
 \usepackage{listings} %Per citare codice informatico formattandolo correttamente
 \usepackage{amsmath}
 \usepackage{graphicx}
@@ -126,6 +126,7 @@ I dati sperimentali sono riportati nelle tabelle~\ref{tab:metodo1_allungamento-m
 %============= METODO 2 =================================
 \subsection{Metodo 2}
 \label{subsec:metodo2}
+<<<<<<< HEAD
 Adottiamo ora un metodo grafico per ricavare $k$ e $g$: misuriamo in modo integrale la massa dei dischetti e dunque l'allungamento della molla aggiungendoli progressivamente. Eseguiamo al contempo per ogni campione aggiunto $20$ misure ripetute del tempo impiegato per compiere $10$ oscillazioni (i dati sperimentali raccolti sono riportati nelle tabelle~\ref{tab:metodo2_allungamento-massa} e \ref{tab:metodo2_periodo}). 
 
 Poiché il quadrato del periodo di oscillazione e l'allungamento della molla sono direttamente proporzionali alla massa appesa ad essa, secondo coefficienti di proporzionalità legati alle costanti oggetto di indagine, in particolare
@@ -200,6 +201,11 @@ Riteniamo che la causa principale della discrepanza dei valori trovati con i \em
 ove osserviamo che l'accelerazione di gravità è in accordo con il valore vero di~\SI{9.81}{\frac{m}{s^2}}.
 
 Infine, sottolineiamo che con meno di tre dischetti appesi alla molla non è stato possibile compiere misure né di allungamento né di periodo, in quanto essa non si è deformata: deduciamo che appendendo uno o due dischetti ci troviamo al di sotto della \emph{soglia di discriminazione}, per cui la molla non reagisce allo stimolo applicato.
+=======
+Misuriamo in modo integrale la massa dei dischetti e dunque l'allungamento della molla aggiungendoli progressivamente. Eseguiamo al contempo per ogni campione aggiunto $20$ misure ripetute del tempo impiegato per compiere $10$ oscillazioni. I dati sperimentali raccolti sono riportati nelle tabelle~\ref{tab:metodo2_allungamento-massa} e \ref{tab:metodo2_periodo}.
+
+Tracciamo quindi il grafico (figura~\ref{fig:periodoquadro-massa}) di $T^2$ in funzione della massa $m$, e quello (figura~\ref{fig:xeq-massa}) dell'allungamento in funzione della massa $m$. Estraiamo i coefficienti angolari delle rette che meglio approssimano i punti sperimentali e ricaviamo $k$ e $g$.
+>>>>>>> origin/master
 
 
 %============= CONSIDERAZIONI FINALI ====================
@@ -235,15 +241,15 @@ Infine, sottolineiamo che con meno di tre dischetti appesi alla molla non è stat
 \label{tab:periodi}\\
 \caption{50 misure del periodo di 5 oscillazioni della molla sottoposta a pesi differenti}\\
 \hline
- osservazioni & 5 dischi & 5 dischi & 10 dischi & 10 dischi \\
+ $\quad\quad$ & 5 dischi & 5 dischi & 10 dischi & 10 dischi \\
   & 5 oscillazioni & 1 oscillazione & 5 oscillazioni & 1 oscillazione \\
   & ($\pm$0.003) & ($\pm$0.003) &($\pm$0.003) & ($\pm$0.003)\\
 \hline
 \endfirsthead
 \multicolumn{5}{c}%
-{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\[0.3cm]
 \hline
-First entry & Second entry & Third entry & Fourth entry & Fourth entry \\
+$\quad\quad$ & Second entry & Third entry & Fourth entry & Fourth entry \\
 \hline
 \endhead
 \hline \multicolumn{5}{r}{\textit{Continued on next page}} \\
@@ -303,6 +309,24 @@ First entry & Second entry & Third entry & Fourth entry & Fourth entry \\
 \end{longtable}
 \end{center}
 
+
+\begin{table}[ht]
+\caption{Tabella riassuntiva delle 50 misure di 5 periodi della molla sottoposta alla forza peso di 5 e 10 dischetti}
+\label{tab:summary}
+\centering
+\begin{tabular}{lccccc}
+  \hline
+ & Media & $\sigma^2$ & $\sigma$ & Max & Min \\ 
+  \hline
+  T 5 dischetti 5.oscillazioni & 3.110 & 4.040e-03 & 0.0642 & 3.370 & 3.020 \\ 
+  T 5 dischetti 1 oscillazione & 0.622 & 1.616e-04 & 0.0128 & 0.674 & 0.604 \\ 
+  T 10 dischetti 5 oscillazioni & 4.224 & 1.084e-03 & 0.0333 & 4.310 & 4.140 \\ 
+  T 10 dischetti 1 oscillazione & 0.845 & 4.334e-05 & 0.0067 & 0.862 & 0.828 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+
 \begin{table}[ht]
 \caption{5 misure del periodo di 50 oscillazioni della molla sottoposta a pesi differenti}
 \label{tab:allungamento}
@@ -349,14 +373,14 @@ First entry & Second entry & Third entry & Fourth entry & Fourth entry \\
 \label{tab:K_g2}\\
 \caption{K e g ricavate da 50 misure di 5 oscillazioni}\\
 \hline
- $\quad$ & $\quad$K$\quad$ & $\quad$g$\quad$\\
+ $\quad\quad$ & $\quad$K$\quad$ & $\quad$g$\quad$\\
   & ($\pm$0.?) & ($\pm$0.0?) \\
 \hline
 \endfirsthead
 \multicolumn{3}{c}%
-{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\
+{\tablename\ \thetable\ -- \textit{Continued from previous page}} \\[0.3cm]
 \hline
-First entry & Second entry & Third entry\\
+$\qquad\qquad$ & Second entry & Third entry\\
 \hline
 \endhead
 \hline \multicolumn{3}{r}{\textit{Continued on next page}} \\
@@ -418,37 +442,82 @@ First entry & Second entry & Third entry\\
 \end{longtable}
 \end{center}
 
-\begin{figure}
-\begin{center}
-\caption{Metodo grafico: $T^2$ in funzione di $m$ e retta di \emph{best fit}}
-\label{fig:periodoquadro-massa}
-\includegraphics[scale=0.18]{Tquadrovsmassa.png}
-\end{center}
-\end{figure}
 
-\begin{figure}
-\begin{center}
-\caption{Metodo grafico: $T^2$ in funzione di $m$ e retta di \emph{best fit} generato con \emph{R}}
-\label{fig:periodoquadro-massa-R}
-\includegraphics[scale=0.5]{metodo_grafico_1.eps}
-\end{center}
-\end{figure}
+\subsection{Tabelle metodo grafico}
 
-\begin{figure}
-\begin{center}
-\caption{Metodo grafico: $x_\text{eq}$ in funzione di $m$ e retta di \emph{best fit}}
-\label{fig:xeq-massa}
-\includegraphics[scale=0.18]{xeqvsmassa.png}
-\end{center}
-\end{figure}
+\begin{table}[ht]
+\label{tab:massa}
+\caption{Masse integrali misurate una sola volta per mancanza di errore statistico influente, incertezza $=\pm0.03$}
+\centering
+\begin{tabular}{cc}
+  \hline
+ & massa integrale [g] \\ 
+  \hline
+I & 77.70 \\ 
+  II & 156.80 \\ 
+  III & 235.90 \\ 
+  IV & 314.50 \\ 
+  V & 392.50 \\ 
+  VI & 472.80 \\ 
+  VII & 551.80 \\ 
+  VIII & 629.00 \\ 
+  IX & 710.10 \\ 
+  X & 787.40 \\ 
+   \hline
+\end{tabular}
+\end{table}
 
-\begin{figure}
-\begin{center}
-\caption{Metodo grafico: $x_\text{eq}$ in funzione di $m$ e retta di \emph{best fit} generato con \emph{R}}
-\label{fig:xeq-massa-R}
-\includegraphics[scale=0.5]{metodo_grafico_2.eps}
-\end{center}
-\end{figure}
+
+
+\begin{table}[ht]
+\label{tab:periodo}
+\caption{20 misure dei periodi d'oscillazione misurati rispetto alle masse integrali, incertezza $=\pm 0.003$}
+\centering
+\begin{tabular}{ccccccccccc}
+  \hline
+ $T$ & I & II & III & IV & V & VI & VII & VIII & IX & X \\ 
+  \hline
+1 & 0.000 & 0.000 & 4.970 & 5.580 & 6.180 & 6.710 & 7.160 & 7.670 & 8.000 & 8.540 \\ 
+  2 & 0.000 & 0.000 & 4.870 & 5.500 & 6.030 & 6.670 & 7.170 & 7.600 & 8.090 & 8.430 \\ 
+  3 & 0.000 & 0.000 & 4.890 & 5.590 & 6.090 & 6.730 & 7.170 & 7.530 & 8.000 & 8.470 \\ 
+  4 & 0.000 & 0.000 & 4.900 & 5.540 & 6.150 & 6.700 & 7.140 & 7.630 & 8.000 & 8.490 \\ 
+  5 & 0.000 & 0.000 & 4.840 & 5.630 & 6.100 & 6.720 & 7.240 & 7.670 & 7.950 & 8.470 \\ 
+  6 & 0.000 & 0.000 & 4.830 & 5.560 & 6.100 & 6.730 & 7.180 & 7.620 & 7.870 & 8.490 \\ 
+  7 & 0.000 & 0.000 & 4.830 & 5.650 & 6.090 & 6.720 & 7.160 & 7.660 & 8.010 & 8.470 \\ 
+  8 & 0.000 & 0.000 & 4.960 & 5.590 & 6.070 & 6.690 & 7.200 & 7.610 & 8.010 & 8.470 \\ 
+  9 & 0.000 & 0.000 & 4.920 & 5.540 & 6.090 & 6.690 & 7.210 & 7.570 & 7.970 & 8.500 \\ 
+  10 & 0.000 & 0.000 & 4.970 & 5.520 & 6.000 & 6.670 & 7.180 & 7.600 & 7.970 & 8.530 \\ 
+  11 & 0.000 & 0.000 & 4.970 & 5.530 & 6.090 & 6.740 & 7.220 & 7.680 & 7.980 & 8.530 \\ 
+  12 & 0.000 & 0.000 & 4.920 & 5.590 & 6.030 & 6.710 & 7.130 & 7.610 & 8.060 & 8.540 \\ 
+  13 & 0.000 & 0.000 & 4.970 & 5.570 & 6.060 & 6.700 & 7.190 & 7.580 & 8.010 & 8.460 \\ 
+  14 & 0.000 & 0.000 & 4.860 & 5.590 & 6.050 & 6.660 & 7.190 & 7.580 & 7.990 & 8.460 \\ 
+  15 & 0.000 & 0.000 & 4.830 & 5.460 & 6.030 & 6.740 & 7.220 & 7.710 & 7.970 & 8.560 \\ 
+  16 & 0.000 & 0.000 & 4.930 & 5.590 & 6.100 & 6.720 & 7.130 & 7.620 & 7.990 & 8.470 \\ 
+  17 & 0.000 & 0.000 & 4.990 & 5.430 & 6.050 & 6.650 & 7.190 & 7.590 & 8.010 & 8.430 \\ 
+  18 & 0.000 & 0.000 & 4.930 & 5.500 & 6.070 & 6.680 & 7.130 & 7.690 & 8.030 & 8.490 \\ 
+  19 & 0.000 & 0.000 & 4.860 & 5.570 & 6.030 & 6.710 & 7.210 & 7.630 & 7.980 & 8.470 \\ 
+  20 & 0.000 & 0.000 & 4.930 & 5.570 & 6.030 & 6.670 & 7.160 & 7.640 & 8.100 & 8.440 \\ 
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[ht]
+\label{tab:periodo}
+\caption{5 misure dell'allungamento della molla sotto l'effetto della forza peso esercitata dalle masse integrali, incertezza $=\pm 0.5$}
+\centering
+\begin{tabular}{ccccccccccc}
+  \hline
+ $x_{eq}$ & I & II & III & IV & V & VI & VII & VIII & IX & X \\ 
+  \hline
+1 & 0.0 & 0.0 & 7.5 & 24.0 & 42.0 & 58.5 & 76.0 & 92.0 & 110.0 & 126.0 \\ 
+  2 & 0.0 & 0.0 & 7.5 & 24.5 & 41.5 & 58.0 & 75.5 & 92.0 & 110.0 & 125.5 \\ 
+  3 & 0.0 & 0.0 & 8.0 & 25.0 & 41.0 & 58.0 & 75.5 & 92.0 & 111.0 & 126.0 \\ 
+  4 & 0.0 & 0.0 & 8.0 & 24.0 & 41.0 & 59.0 & 75.5 & 91.5 & 111.0 & 125.5 \\ 
+  5 & 0.0 & 0.0 & 7.5 & 24.5 & 41.5 & 59.0 & 75.5 & 92.0 & 110.0 & 125.5 \\ 
+   \hline
+\end{tabular}
+\end{table}
 
 
 
