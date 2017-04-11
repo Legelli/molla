@@ -8,6 +8,7 @@
 \usepackage{listings} %Per citare codice informatico formattandolo correttamente
 \usepackage{amsmath}
 \usepackage{graphicx}
+\usepackage{geometry}
 \usepackage{epigraph}
 \usepackage{booktabs}	%tabelle migliorate
 \usepackage{tablefootnote}	%note a piè di pagina in tabella
@@ -95,6 +96,7 @@ e si porta nella posizione di equilibrio
 indipendente dall'ampiezza delle oscillazioni.
 
 In questa esperienza calcoliamo in modo indiretto la costante elastica $k$ della molla a partire dalle misure del periodo di oscillazione, e misurando la posizione di equilibrio in funzione della massa applicata, stimiamo la costante di accelerazione gravitazionale $g$. 
+\clearpage
 
 Adottiamo due metodi diversi:
 \begin{enumerate}
@@ -144,17 +146,7 @@ Analogamente a quanto appena detto, per poter calcolare l'accelerazione gravitaz
 \end{equation}
 dove si è usata la stessa notazione di sopra.
 
-Misuriamo quindi la massa complessiva prima di $5$ e poi di $10$ campioni usando una bilancia di risoluzione non massima tra quelle a disposizione a causa della portata limitata di quella più accurata; per via della risoluzione al decimo di grammo ripetendo le misure non si apprezzano variazioni, le masse integrali dei campioni sono riportate nella Tabella \ref{tab:massa}. Misuriamo poi l'allungamento della molla quando ad essa vengono appesi i campioni, ripetendo le misure $5$ volte ed ottenendo le misure riportate nella Tabella \ref{tab:allungamento}. Eseguiamo quindi $50$ misure ripetute di $5$ periodi di oscillazione e successivamente $5$ misure ripetute di $50$ periodi di oscillazione, applicando prima $5$ e poi $10$ campioni, riportiamo i risultati rispettivamente nella Tabella \ref{tab:5oscillazioni} e nella Tabella \ref{tab:50oscillazioni}, ai quali associamo gli istogrammi in Figura \ref{fig:ist_5dischi} e in Figura \ref{fig:ist_10dischi}.
-
-\begin{figure}[p]
-\centering
-\caption{Istogramma periodo oscillazione di 5 dischetti}
-\label{fig:ist_5dischi}
-\includegraphics[scale=0.6]{istogramma_5_dischi.eps}
-\caption{Istogramma periodo oscillazione di 10 dischetti}
-\label{fig:ist_10dischi}
-\includegraphics[scale=0.6]{istogramma_10_dischi.eps}
-\end{figure}
+Misuriamo quindi la massa complessiva prima di $5$ e poi di $10$ campioni usando una bilancia di risoluzione non massima tra quelle a disposizione a causa della portata limitata di quella più accurata; per via della risoluzione al decimo di grammo ripetendo le misure non si apprezzano variazioni, le masse integrali dei campioni sono riportate nella Tabella \ref{tab:massa} (leggendo le entrate denominate \textbf{V} e \textbf{X}, che indicano la massa rispettivamente di $5$ e $10$ dischetti). Misuriamo poi l'allungamento della molla quando ad essa vengono appesi i campioni, ripetendo le misure $5$ volte ed ottenendo le misure riportate nella Tabella \ref{tab:metodo2_allungamento} (\emph{come prima}). Eseguiamo quindi $50$ misure ripetute di $5$ periodi di oscillazione e successivamente $5$ misure ripetute di $50$ periodi di oscillazione, applicando prima $5$ e poi $10$ campioni, riportiamo i risultati rispettivamente nella Tabella \ref{tab:5oscillazioni} e nella Tabella \ref{tab:50oscillazioni}, ai quali associamo gli istogrammi in Figura \ref{fig:ist_5dischi} e in Figura \ref{fig:ist_10dischi}.
 
 Dalle misure prese è possibile calcolare immediatamente il periodo di oscillazione associato a 5 e a 10 campioni dividendo la misura di tempo misurata per il numero di oscillazioni contate; calcolando tale grandezza a partire dalla media delle misure associamo al singolo periodo un'incertezza data da
 \begin{equation}\label{eq:delta_T}
@@ -167,7 +159,7 @@ dove indichiamo con $O$ il numero di oscillazioni contate e con $N$ il numero di
 \centering
 \begin{tabular}{lcc}
   \hline
- & Media & $\delta$ \\ 
+ & Media (\SI{}{s}) & $\delta$ (\SI{}{s}) \\ 
   \hline
   5 dischi & 0.622 & 0.0019 \\ 
   10 dischi & 0.845 & 0.0013\\ 
@@ -181,7 +173,7 @@ dove indichiamo con $O$ il numero di oscillazioni contate e con $N$ il numero di
 \centering
 \begin{tabular}{lcc}
   \hline
- & Media & $\delta$ \\ 
+ & Media (\SI{}{s}) & $\delta$ (\SI{}{s}) \\ 
   \hline
   5 dischi & 0.613 & 0.0004 \\ 
   10 dischi & 0.841 & 0.0011\\ 
@@ -189,10 +181,29 @@ dove indichiamo con $O$ il numero di oscillazioni contate e con $N$ il numero di
 \end{tabular}
 \end{table}
 Confrontando i risultati è evidente che le incertezze sui periodi calcolati a partire dalla misura di 50 oscillazioni sono minori di quelle sui periodi calcolati a partire dalla misura di 5 oscillazioni, anche se nel primo caso sono state effettuate solamente 5 misure contro le 50 del secondo.
-Dall'equazione (\ref{eq:k_vero}) ricaviamo
+
+\clearpage
+
+\newgeometry{textheight=1.2\textheight}
+
+\begin{figure}[p]
+\centering
+\caption{Istogramma periodo oscillazione di 5 dischetti}
+\label{fig:ist_5dischi}
+\includegraphics[scale=0.6]{istogramma_5_dischi.eps}
+\caption{Istogramma periodo oscillazione di 10 dischetti}
+\label{fig:ist_10dischi}
+\includegraphics[scale=0.6]{istogramma_10_dischi.eps}
+\end{figure}
+
+\restoregeometry
+
+\clearpage
+
+\noindent Dall'equazione (\ref{eq:k_vero}) ricaviamo
 \begin{align*}
-	k_5 &=  \SI{47714.525}{N/mm} = \SI{47.714}{N/m}, \\
-	k_{50} &= \SI{47024.450}{N/mm} = \SI{47.024}{N/m},	
+	k_5 &=  \SI{47.7e3}{N/mm} = \SI{47.7}{N/m}, \\
+	k_{50} &= \SI{47.0e3}{N/mm} = \SI{47.0}{N/m},	
 \end{align*} dove abbiamo usato prima il periodo calcolato su 5 oscillazioni e poi quello su 50. Entrambe queste misure indirette sono accompagnate da un'incertezza stimabile come
 \begin{equation}\label{eq:delta_k}
 	\delta_k = k \sqrt{\left(\frac{\delta_{\Delta \bar{m}}}{\Delta \bar{m}}\right)^2 + \left(\frac{\delta_{\Delta (\bar{T}^2)}}{\Delta \bar{T}} \right)^2},
@@ -203,11 +214,12 @@ Dall'equazione (\ref{eq:k_vero}) ricaviamo
 \begin{equation}\label{eq:delta_T}
 	\delta_{\Delta (\bar{T}^2)}^2 = 4\left(\left(\bar{T_2}\frac{\sigma_{T_1}}{N}\right)^2 + \left(\bar{T_1}\frac{\sigma_{T_2}}{N}\right)^2 + \left(\bar{T_1}^2 + \bar{T_2}^2\right) u_T^2 \right),
 \end{equation}
-nelle quali l'incertezza sulle masse è data dalla sola incertezza strumentale per quanto detto prima sulla sensibilità della bilancia usata, mentre con $\sigma_{T_1}, \sigma_{T_2}$ abbiamo indicato le deviazioni standard sulle oscillazioni dei 5 e 10 campioni, con $N$ si intende il numero di misure effettuate. \\
+nelle quali l'incertezza sulle masse è data dalla sola incertezza strumentale per quanto detto prima sulla sensibilità della bilancia usata, mentre con $\sigma_{T_1}, \sigma_{T_2}$ abbiamo indicato le deviazioni standard sulle oscillazioni dei 5 e 10 campioni, con $N$ si intende il numero di misure effettuate. 
+
 Dall'equazione (\ref{eq:delta_k}) ricaviamo
 \begin{align*}
-	\delta_{k_5} &= \SI{463,76}{N/mm}, \\
-	\delta_{k_{50}} &= \SI{261,22}{N/mm}.
+	\delta_{k_5} &= \SI{4.6e2}{N/mm}, \\
+	\delta_{k_{50}} &= \SI{2.6e2}{N/mm}.
 \end{align*}
 Misurando il tempo di 5 oscillazioni, la miglior stima che possiamo dare della costante elastica della molla è
 \[
@@ -219,8 +231,8 @@ Misurando il tempo di 5 oscillazioni, la miglior stima che possiamo dare della c
 
 Attraverso l'equazione (\ref{eq:g_vero}) possiamo calcolare l'accelerazione gravitazionale $g$, utilizzando i risultati di entrambi i metodi otteniamo i due valori:
 \begin{align*}
-	g_5 = \SI{10040.712}{mm/s^2} &= \SI{10.041}{m/s^2}, \\
-	g_{50} = \SI{9895.500}{mm/s^2} &= \SI{9.900}{m/s^3}.
+	g_5 = \SI{10.04e3}{mm/s^2} &= \SI{10.04}{m/s^2}, \\
+	g_{50} = \SI{9.90e3}{mm/s^2} &= \SI{9.90}{m/s^2}.
 \end{align*}
 L'incertezza su queste misure indirette è data da
 \begin{equation}\label{eq:delta_g}
@@ -232,8 +244,8 @@ dove $\delta_{\Delta (\bar{T})^2}$ è quello di (\ref{eq:delta_T}), mentre
 \] con $\sigma_{x_1}, \sigma_{x_2}$ le deviazioni standard sugli allungamenti con 5 e 10 campioni.
 Dall'equazione (\ref{eq:delta_g}) si calcolano le due incertezze
 \begin{align*}
-	\delta_{g_5} = \SI{122.76}{mm/s^2} &= \SI{0.12}{m/s^2}, \\
-	\delta_{g_{50}} = \SI{91.70}{mm/s^2} &= \SI{0.09}{m/s^2}.
+	\delta_{g_5} = \SI{1.2e2}{mm/s^2} &= \SI{0.12}{m/s^2}, \\
+	\delta_{g_{50}} = \SI{9.1e1}{mm/s^2} &= \SI{0.09}{m/s^2}.
 \end{align*}
 Con il periodo ricavato dalla misura di 5 oscillazioni, la miglior stima che possiamo dare dell'accelerazione gravitazionale è 
 \[
@@ -245,7 +257,7 @@ Con il periodo ricavato dalla misura di 5 oscillazioni, la miglior stima che pos
 %============= METODO 2 =================================
 \subsection{Metodo 2}
 \label{subsec:metodo2}
-Adottiamo ora un metodo grafico per ricavare $k$ e $g$: misuriamo in modo integrale la massa dei dischetti e dunque l'allungamento della molla aggiungendoli progressivamente. Eseguiamo al contempo per ogni campione aggiunto $20$ misure ripetute del tempo impiegato per compiere $10$ oscillazioni (i dati sperimentali raccolti sono riportati nelle tabelle~\ref{tab:metodo2_allungamento},  \ref{tab:massa} e \ref{tab:periodo}). 
+Adottiamo ora un metodo grafico per ricavare $k$ e $g$: misuriamo in modo integrale la massa dei dischetti e dunque l'allungamento della molla aggiungendoli progressivamente. Eseguiamo al contempo per ogni campione aggiunto $20$ misure ripetute del tempo impiegato per compiere $10$ oscillazioni (i dati sperimentali raccolti sono riportati nelle tabelle~\ref{tab:massa},  \ref{tab:periodo} e \ref{tab:metodo2_allungamento}). 
 
 Poiché il quadrato del periodo di oscillazione e l'allungamento della molla sono direttamente proporzionali alla massa appesa ad essa, secondo coefficienti di proporzionalità legati alle costanti oggetto di indagine, in particolare
 	\begin{align*}
@@ -261,18 +273,6 @@ e l'accelerazione gravitazionale da
 	g = 4\pi^2\frac{\alpha_2}{\alpha_1}.
 	\]
 
-\begin{figure}[p]
-\centering
-\caption{Grafico $T^2$ vs $m$}
-\label{fig:periodoquadro-massa}
-\includegraphics[scale=0.6]{grafico.eps}
-
-\caption{Grafico $x_{eq}$ vs $m$}
-\label{fig:xeq-massa}
-\includegraphics[scale=0.6]{metodo_grafico_2.eps}
-\end{figure}
-
-
 Per il calcolo di $\alpha_1$, scegliamo sulla retta interpolatrice (figura~\ref{fig:periodoquadro-massa}) i seguenti punti
 	\begin{align*}
 	m_1 = \SI{180.00}{g}, \qquad & T^2_1 = \SI{0.20}{s^2}; \\
@@ -282,6 +282,51 @@ dunque $\alpha_1 = \SI{8.88\pm0.02 e-4}{s^2/g}$. L'incertezza su questo valore è
 	\[
 	\sigma_{\alpha_1} = \alpha_1 \sqrt{\left(\frac{\sigma_{\Delta (T^2)}}{\Delta(T^2)}\right)^2 + \left(\frac{\sigma_{\Delta m}}{\Delta m}\right)^2} ,
 	\]
+	
+\clearpage
+
+\newgeometry{textheight=1.2\textheight}
+	
+\begin{figure}[p]
+\centering
+\caption{Grafico $T^2$ vs $m$}
+\label{fig:periodoquadro-massa}
+\includegraphics[scale=0.13]{Tquadrovsmassa.png}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\caption{Grafico $T^2$ vs $m$ generato con \emph{R}}
+\includegraphics[scale=0.6]{grafico.eps}
+\end{figure}
+
+\restoregeometry
+
+\clearpage
+
+\clearpage
+
+\newgeometry{textheight=1.2\textheight}
+
+\begin{figure}[p]
+\centering
+\caption{Grafico $x_{eq}$ vs $m$}
+\label{fig:xeq-massa}
+\includegraphics[scale=0.15]{xeqvsmassa.png}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\caption{Grafico $x_{eq}$ vs $m$ generato con \emph{R}}
+\includegraphics[scale=0.6]{metodo_grafico_2.eps}
+\end{figure}
+
+\restoregeometry
+
+\clearpage
+	
+	
+	
 dove 
 	\[
 	\sigma^2_{\Delta(T^2)} = (2T_2\delta_{T_2})^2 + (2T_1\delta_{T_1})^2,
@@ -335,17 +380,19 @@ Infine, sottolineiamo che con meno di tre dischetti appesi alla molla non è stat
 
 %============= BONUS ====================
 \subsection{Massa e periodo iniziali}
-A partire dal grafico riportato nella figura~\ref{fig:periodoquadro-massa}, risulta facile, attraverso l'equazione 
-\begin{equation}
-T^2=\frac{4\pi^2m_0}{k}+\frac{4\pi^2m}{k}=T_0^2+\alpha_1m
+A partire dal grafico riportato nella figura~\ref{fig:periodoquadro-massa}, attraverso l'equazione 
+\begin{equation}\label{eqn:periodoquadro_massa}
+T^2=\frac{4\pi^2m_0}{k}+\frac{4\pi^2m}{k}=T_0^2+\alpha_1m,
 \end{equation}
-ricavare la massa iniziale $m_0$ del sistema. Essendo $T_0^2$ l'intercetta del grafico, esso può essere ricavato   attraverso l'equazione \[
+è possibile ricavare la massa iniziale $m_0$ del sistema. L'intercetta del grafico $T_0^2$ può essere ricavata con
+\[
 \frac{m-m_1}{m_2-m_1}=\frac{T^2-T_1^2}{T_2^2-T_1^2}
 \]
-dove $(m_1,T_1^2) $ e $(m_2,T_2^2)$ sono due punti\footnote{Per comodità verrano riutilizzati quelli presi in precedenza per ottenere il valore della costante elastica della molla} sulla retta di regressione lineare.
-L'equazione precedente può essere riscritta in modo da esplicitare $T^2$ e, di conseguenza, $T_0^2$:\[
+dove $(m_1,T_1^2) $ e $(m_2,T_2^2)$ sono due punti\footnote{Per comodità verrano riutilizzati quelli presi in precedenza per ottenere il valore della costante elastica della molla e di $g$.} sulla retta di regressione lineare.
+L'equazione precedente può essere riscritta in modo da esplicitare $T^2$ e, di conseguenza, $T_0^2$:
+\begin{equation}\label{eqn:periodo_0}
 T^2=\frac{T_2^2-T_1^2}{m_2-m_1}m+\frac{m_2T_1^2-m_1T_2^2}{m_2-m_1}\qquad\Longrightarrow\qquad T_0^2= \frac{m_2T_1^2-m_1T_2^2}{m_2-m_1}
-\]
+\end{equation}
 Per quanto riguarda l'incertezza da associare a $T_0^2$ essa si ricava derivando l'equazione \ref{eqn:periodo_0} rispetto alle componenti $T_1^2$, $T_2^2$, $m_1$ ed $m_2$: \begin{align}
 &\frac{\partial T_0^2}{\partial T_1^2}=\frac{m_2}{m_2-m_1}\notag\\
 &\frac{\partial T_0^2}{\partial T_2^2}=\frac{-m_1}{m_2-m_1}\notag\\
@@ -362,19 +409,20 @@ e sommando in quadratura: \begin{align}
 Segue che:\[
 \boxed{\textbf{$T_0^2$ = {\SI{0.04 \pm 0.001}{s^2}}}}
 \]
-Risultato concorde con al valore trovato utilizzando l'algoritmo di interpolazione del software di elaborazione statistica \emph{R} con il quale si ricava, per l'intercetta $T_0^2$ il valore di $0.036 \pm 0.001$. 
-Possiamo ora invertire l'equazione\ref{eqn:14} per ottenere il valore iniziale della massa: \[
+Risultato concorde con al valore trovato utilizzando l'algoritmo di interpolazione del software di elaborazione statistica \emph{R} con il quale si ricava, per l'intercetta $T_0^2$ il valore di \SI{0.036 \pm 0.001}{s^2}. 
+Possiamo ora invertire l'equazione~\ref{eqn:periodoquadro_massa} per ottenere il valore della massa della molla: \[
 m_0=\frac{kT_0^2}{4\pi^2}
 \] 
-L'incertezza da associare a tale valore, $\delta m_0$ si ricava derivando rispetto a $k$ e $T_0^2$ l'equazione precedente:\begin{align}
+L'incertezza $\delta m_0$ da associare a tale valore si ricava derivando rispetto a $k$ e $T_0^2$ l'equazione precedente:\begin{align}
 &\frac{\partial m_0}{\partial T_0^2}=\frac{k}{4\pi^2}\notag\\
-&\frac{\partial m_0}{\partial k}=\frac{T_0^2}{4\pi^2}\notag
+&\frac{\partial m_0}{\partial k}=\frac{T_0^2}{4\pi^2}\notag.
 \end{align}
 Da cui l'incertezza:\[
-\delta m_0=\sqrt{\left(\frac{\partial m_0}{\partial T_0^2}\delta T_O^2\right)^2 + \left(\frac{\partial m_0}{\partial k}\delta k\right)^2}\qquad\text{dove:}\qquad\delta k=\SI{0.1}{\frac{N}{m}}=\SI{100}{\frac{g}{s^2}}
+\delta m_0=\sqrt{\left(\frac{\partial m_0}{\partial T_0^2}\delta T_0^2\right)^2 + \left(\frac{\partial m_0}{\partial k}\delta k\right)^2}.%\qquad\text{dove:}\qquad\delta k=\SI{0.1}{\frac{N}{m}}=\SI{100}{\frac{g}{s^2}}
 \]
-Si arriva dunque al valore iniziale della massa $m_0$:\[
-\boxed{\textbf{$m_0^2$ = {\SI{45.0 \pm 1.4}{g}}}}
+Si arriva dunque al valore cercato:
+\[
+\boxed{\textbf{$m_0$ = {\SI{45.0 \pm 1.4}{g}}}}.
 \]
 
 
@@ -382,13 +430,15 @@ Si arriva dunque al valore iniziale della massa $m_0$:\[
 %============= CONSIDERAZIONI FINALI ====================
 \section{Considerazioni finali}
 \label{sec:c_finali}
-A questa latitudine, esperimenti ben più complessi e più precisi hanno dato all'accelerazione $g$ il valore approssimato di \SI{9.81}{m/s^2}, i nostri risultati sono tutti compatibili con tale misura ad eccezione di quello ricavato partendo dal tempo di 5 oscillazioni, nonostante sia anche quello con incertezza relativa maggiore (1.22~\%); tale discrepanza può essere spiegata da un'eventuale errore sistematico nella lettura dell'allungamento della molla dalla posizione di riposo: eventuali errori casuali sarebbero stati, infatti, assorbiti dalla media. Con sicurezza possiamo affermare, infatti, che la maggior parte dell'incertezza viene dal metodo con cui abbiamo calcolato gli allungamenti: per quanto possa essere difficile stimare "ad occhio" la posizione di massima distanza dalla posizione di equilibrio, ripetendo numerose volte la misura le stime per eccesso hanno, in teoria, compensato quelle per difetto, per cui è difficile che sia questa la causa di tali valori.\\
+A questa latitudine, esperimenti ben più complessi e precisi hanno dato all'accelerazione $g$ il valore approssimato di \SI{9.81}{m/s^2}; i nostri risultati sono tutti compatibili con tale misura ad eccezione di quello ricavato partendo dal tempo di $5$ oscillazioni, nonostante sia anche quello con incertezza relativa maggiore (1.22~\%); tale discrepanza può essere spiegata da un'eventuale errore sistematico nella lettura dell'allungamento della molla dalla posizione di riposo: eventuali errori casuali sarebbero stati, infatti, assorbiti dalla media. Con sicurezza possiamo affermare, infatti, che la maggior parte dell'incertezza provenga dal metodo con cui abbiamo calcolato gli allungamenti: per quanto possa essere difficile stimare ``ad occhio'' la posizione di massima distanza dalla posizione di equilibrio, ripetendo numerose volte la misura le stime per eccesso hanno, in teoria, compensato quelle per difetto, per cui è difficile che sia questa la causa di tali valori.
 
-C'è inoltre da ricordare che quanto detto nella sezione \ref{sec:description} è vero solo in parte: l'indipendenza del periodo dall'ampiezza di oscillazione (proprietà sulla quale abbiamo costruito la nostra esperienza) si verifica esclusivamente in un sistema ideale, cioè in un oscillatore senza attrito; la presenza dell'aria aggiunge invece all'equazione differenziale un termine dissipativo (dipendente dalla velocità) che rende l'oscillatore \emph{smorzato} (in particolare, per via del poco attrito, è uno smorzamento sottocritico): questo rende il periodo non uniforme e non indipendente dall'ampiezza delle oscillazioni. Concludiamo però che tale approssimazione non influisca considerevolmente sulle nostre misure: la presenza di uno smorzamento ha fatto sì che i periodi misurati fossero leggermente più grandi di quelli ideali, il che alla fine implica un'accelerazione gravitazionale più piccola di quella \emph{reale}, ma evidentemente la sovrastima delle distanze di equilibrio (che invece ha avuto l'effetto opposto) è risultata molto più influente, e le nostre stime finali sono leggermente più grandi di quelle che ci saremmo aspettati.
+%C'è inoltre da ricordare che quanto detto nella sezione \ref{sec:description} è vero solo in parte: l'indipendenza del periodo dall'ampiezza di oscillazione (proprietà sulla quale abbiamo costruito la nostra esperienza) si verifica esclusivamente in un sistema ideale, cioè in un oscillatore senza attrito; la presenza dell'aria aggiunge invece all'equazione differenziale un termine dissipativo (dipendente dalla velocità) che rende l'oscillatore \emph{smorzato} (in particolare, per via del poco attrito, è uno smorzamento sottocritico): questo rende il periodo non uniforme e non indipendente dall'ampiezza delle oscillazioni. Concludiamo però che tale approssimazione non influisca considerevolmente sulle nostre misure: la presenza di uno smorzamento ha fatto sì che i periodi misurati fossero leggermente più grandi di quelli ideali, il che alla fine implica un'accelerazione gravitazionale più piccola di quella \emph{reale}, ma evidentemente la sovrastima delle distanze di equilibrio (che invece ha avuto l'effetto opposto) è risultata molto più influente, e le nostre stime finali sono leggermente più grandi di quelle che ci saremmo aspettati.
+
+\clearpage
+
 %============= TABELLE e GRAFICI =======================
 
 \section{Appendice: tabelle e grafici}
-\subsection{Tabelle metodo 1}
 
 %La tabella non serve, ci sta già quella per tutti i dischetti
 % \begin{table}[ht]
@@ -415,7 +465,7 @@ C'è inoltre da ricordare che quanto detto nella sezione \ref{sec:description} è 
 \label{tab:5oscillazioni}\\
 \caption{Periodo di 5 oscillazioni}\\
 \hline
- $\quad\quad$ & 5 dischi & 10 dischi \\
+ $\quad\quad$ & 5 dischi (\SI{}{s}) & 10 dischi (\SI{}{s}) \\
    & ($\pm$0.003) &($\pm$0.003)\\
 \hline
 \endfirsthead
@@ -429,63 +479,59 @@ C'è inoltre da ricordare che quanto detto nella sezione \ref{sec:description} è 
 \endfoot
 \hline
 \endlastfoot
-1 & 3.100 & 4.270 \\ 
-  2 & 3.170 & 4.310 \\ 
-  3 & 3.370 & 4.240\\ 
-  4 & 3.190 & 4.230 \\
+ & 3.100 & 4.270 \\ 
+   & 3.170 & 4.310 \\ 
+   & 3.370 & 4.240\\ 
+   & 3.190 & 4.230 \\
   5 & 3.050  & 4.190 \\ 
-  6 & 3.100 & 4.230 \\ 
-  7 & 3.110 & 4.230\\ 
-  8 & 3.270 & 4.230 \\ 
-  9 & 3.100 & 4.210 \\ 
+   & 3.100 & 4.230 \\ 
+   & 3.110 & 4.230\\ 
+   & 3.270 & 4.230 \\ 
+   & 3.100 & 4.210 \\ 
   10 & 3.130 & 4.220 \\ 
-  11 & 3.130 & 4.140 \\ 
-  12 & 3.130 & 4.230  \\ 
-  13 & 3.130 & 4.170 \\ 
-  14 & 3.150 & 4.260 \\ 
+   & 3.130 & 4.140 \\ 
+   & 3.130 & 4.230  \\ 
+   & 3.130 & 4.170 \\ 
+   & 3.150 & 4.260 \\ 
   15 & 3.150 & 4.190 \\
-  6 & 3.170 & 4.220 \\ 
-  17 & 3.250 & 4.220 \\ 
-  18 & 3.110  & 4.170 \\ 
-  19 & 3.070 & 4.220 \\ 
+   & 3.170 & 4.220 \\ 
+   & 3.250 & 4.220 \\ 
+   & 3.110  & 4.170 \\ 
+   & 3.070 & 4.220 \\ 
   20 & 3.100 & 4.230 \\ 
-  21 & 3.070 & 4.190 \\ 
-  22 & 3.190 & 4.230 \\ 
-  23 & 3.100 & 4.190  \\ 
-  24 & 3.120 & 4.250  \\ 
+   & 3.070 & 4.190 \\ 
+   & 3.190 & 4.230 \\ 
+   & 3.100 & 4.190  \\ 
+   & 3.120 & 4.250  \\ 
   25 & 3.090  & 4.230\\ 
-  26 & 3.100 & 4.230 \\ 
-  27 & 3.070 & 4.230  \\ 
-  28 & 3.070 & 4.260 \\ 
-  29 & 3.100 & 4.290 \\
+   & 3.100 & 4.230 \\ 
+   & 3.070 & 4.230  \\ 
+   & 3.070 & 4.260 \\ 
+   & 3.100 & 4.290 \\
   30 & 3.130  & 4.250 \\
-  31 & 3.020  & 4.190 \\ 
-  32 & 3.070 & 4.250  \\ 
-  33 & 3.080 & 4.230 \\ 
-  34 & 3.070 & 4.190 \\ 
+   & 3.020  & 4.190 \\ 
+   & 3.070 & 4.250  \\ 
+   & 3.080 & 4.230 \\ 
+   & 3.070 & 4.190 \\ 
   35 & 3.080 & 4.240  \\ 
-  36 & 3.070 & 4.220 \\ 
-  37 & 3.090 & 4.230 \\ 
-  38 & 3.120 & 4.230 \\ 
-  39 & 3.110 & 4.270 \\ 
+   & 3.070 & 4.220 \\ 
+   & 3.090 & 4.230 \\ 
+   & 3.120 & 4.230 \\ 
+   & 3.110 & 4.270 \\ 
   40 & 3.160 & 4.190 \\ 
-  41 & 3.030 & 4.250 \\ 
-  42 & 3.100 & 4.180  \\ 
-  43 & 3.100 & 4.170 \\ 
-  44 & 3.020 & 4.200  \\ 
+   & 3.030 & 4.250 \\ 
+   & 3.100 & 4.180  \\ 
+ 	 & 3.100 & 4.170 \\ 
+   & 3.020 & 4.200  \\ 
   45 & 3.030 & 4.200 \\ 
-  46 & 3.090 & 4.250 \\ 
-  47 & 3.030 & 4.230 \\ 
-  48 & 3.030 & 4.270 \\ 
-  49 & 3.090 & 4.190 \\ 
+   & 3.090 & 4.250 \\ 
+   & 3.030 & 4.230 \\ 
+   & 3.030 & 4.270 \\ 
+   & 3.090 & 4.190 \\ 
   50 & 3.090 & 4.250 \\ 
  \hline
 \end{longtable}
 \end{center}
-
-
-
-
 
 \begin{table}[h]
 \caption{Periodo di 50 oscillazioni}
@@ -493,7 +539,7 @@ C'è inoltre da ricordare che quanto detto nella sezione \ref{sec:description} è 
 \centering
 \begin{tabular}{ccccc}
   \hline
- & 5 dischi & 5 dischi & 10 dischi & 10 dischi\\
+ & 5 dischi (\SI{}{s}) & 5 dischi (\SI{}{s}) & 10 dischi (\SI{}{s}) & 10 dischi (\SI{}{s})\\
  & 50 oscillazioni  & 1 oscillazione  & 50 oscillazioni  & 1 oscillazione\\
  & ($\pm$0.003) & ($\pm$0.003) &($\pm$0.003) & ($\pm$0.003)\\
   \hline
@@ -514,7 +560,8 @@ C'è inoltre da ricordare che quanto detto nella sezione \ref{sec:description} è 
 \centering
 \begin{tabular}{ccc}
   \hline
- & k 50 oscillazioni & g 50 oscillazioni \\ 
+ & k (\SI{}{N/m}) & g (\SI{}{m/s^2})\\
+ & (\SI{ \pm 0.3}{}) & (\SI{ \pm 0.09}{}) \\  
   \hline
 1 & 46.8 & 9.84 \\ 
   2 & 46.6 & 9.74 \\ 
@@ -533,8 +580,8 @@ C'è inoltre da ricordare che quanto detto nella sezione \ref{sec:description} è 
 \label{tab:k_g2}\\
 \caption{k e g ricavate da 50 misure di 5 oscillazioni}\\
 \hline
- & k & g\\
- & \SI{ \pm 1}{N/m} & \SI{ \pm 1}{m/s^2} \\ %Da correggere
+ & k (\SI{}{N/m}) & g (\SI{}{m/s^2})\\
+ & (\SI{ \pm 0.5}{}) & (\SI{ \pm 0.12}{}) \\ 
 \hline
 \endfirsthead
 \multicolumn{3}{r}
@@ -549,62 +596,60 @@ C'è inoltre da ricordare che quanto detto nella sezione \ref{sec:description} è 
 %\hline
 \endlastfoot
 %\hline
-1 & 45.2 & 9.50 \\ 
-  2 & 45.7 & 9.55 \\ 
-  3 & 58.9 & 12.37 \\ 
-  4 & 50.5 & 10.55 \\ 
+ & 45.2 & 9.50 \\ 
+   & 45.7 & 9.55 \\ 
+   & 58.9 & 12.37 \\ 
+   & 50.5 & 10.55 \\ 
   5 & 47.2 & 10.10 \\ 
-  6 & 47.1 & 9.89 \\ 
-  7 & 47.4 & 9.90 \\ 
-  8 & 54.1 & 11.38 \\ 
-  9 & 48.0 & 10.03 \\ 
+   & 47.1 & 9.89 \\ 
+   & 47.4 & 9.90 \\ 
+   & 54.1 & 11.38 \\ 
+   & 48.0 & 10.03 \\ 
   10 & 48.6 & 10.41 \\ 
-  11 & 53.1 & 11.16 \\ 
-  12 & 48.1 & 10.06 \\ 
-  13 & 51.3 & 10.79 \\ 
-  14 & 47.4 & 9.90 \\ 
+   & 53.1 & 11.16 \\ 
+   & 48.1 & 10.06 \\ 
+   & 51.3 & 10.79 \\ 
+   & 47.4 & 9.90 \\ 
   15 & 51.1 & 10.93 \\ 
-  16 & 50.2 & 10.56 \\ 
-  17 & 53.8 & 11.24 \\ 
-  18 & 50.5 & 10.62 \\ 
-  19 & 46.5 & 9.71 \\ 
+   & 50.2 & 10.56 \\ 
+   & 53.8 & 11.24 \\ 
+   & 50.5 & 10.62 \\ 
+   & 46.5 & 9.71 \\ 
   20 & 47.1 & 10.07 \\ 
-  21 & 47.9 & 10.07 \\ 
-  22 & 50.5 & 10.55 \\ 
-  23 & 49.0 & 10.31 \\ 
-  24 & 46.8 & 9.78 \\ 
+   & 47.9 & 10.07 \\ 
+   & 50.5 & 10.55 \\ 
+   & 49.0 & 10.31 \\ 
+   & 46.8 & 9.78 \\ 
   25 & 46.7 & 9.99 \\ 
-  26 & 47.1 & 9.89 \\ 
-  27 & 46.0 & 9.62 \\ 
-  28 & 44.7 & 9.39 \\ 
-  29 & 44.3 & 9.26 \\ 
+   & 47.1 & 9.89 \\ 
+   & 46.0 & 9.62 \\ 
+   & 44.7 & 9.39 \\ 
+   & 44.3 & 9.26 \\ 
   30 & 47.2 & 10.09 \\ 
-  31 & 46.2 & 9.71 \\ 
-  32 & 45.1 & 9.43 \\ 
-  33 & 46.4 & 9.74 \\ 
-  34 & 47.9 & 10.01 \\ 
+   & 46.2 & 9.71 \\ 
+   & 45.1 & 9.43 \\ 
+   & 46.4 & 9.74 \\ 
+   & 47.9 & 10.01 \\ 
   35 & 45.9 & 9.82 \\ 
-  36 & 46.5 & 9.77 \\ 
-  37 & 46.7 & 9.76 \\ 
-  38 & 47.8 & 10.04 \\ 
-  39 & 45.5 & 9.51 \\ 
+   & 46.5 & 9.77 \\ 
+   & 46.7 & 9.76 \\ 
+   & 47.8 & 10.04 \\ 
+   & 45.5 & 9.51 \\ 
   40 & 51.5 & 11.02 \\ 
-  41 & 43.9 & 9.22 \\ 
-  42 & 49.6 & 10.36 \\ 
-  43 & 50.1 & 10.53 \\ 
-  44 & 45.7 & 9.56 \\ 
+   & 43.9 & 9.22 \\ 
+   & 49.6 & 10.36 \\ 
+   & 50.1 & 10.53 \\ 
+   & 45.7 & 9.56 \\ 
   45 & 46.1 & 9.86 \\ 
-  46 & 45.8 & 9.62 \\ 
-  47 & 44.7 & 9.35 \\ 
-  48 & 43.1 & 9.05 \\ 
-  49 & 48.7 & 10.17 \\ 
+   & 45.8 & 9.62 \\ 
+   & 44.7 & 9.35 \\ 
+   & 43.1 & 9.05 \\ 
+   & 48.7 & 10.17 \\ 
   50 & 45.8 & 9.79 \\ 
 \hline
 \end{longtable}
 \end{center}
 
-
-\subsection{Tabelle metodo grafico}
 
 \begin{table}[h]
 \caption{Misure integrali di massa}
@@ -612,8 +657,8 @@ C'è inoltre da ricordare che quanto detto nella sezione \ref{sec:description} è 
 \centering
 \begin{tabular}{cc}
   \hline
- \# campioni & massa [g] \\ 
- & \SI{ \pm 0.03}{g} \\
+ \# campioni & massa (g) \\ 
+ & (\SI{ \pm 0.03}{g}) \\
   \hline
 I & 77.70 \\ 
   II & 156.80 \\ 
@@ -632,32 +677,33 @@ I & 77.70 \\
 
 
 \begin{table}[h]
+\caption{20 misure dei periodi di 10 oscillazioni misurati rispetto alle masse integrali}
 \label{tab:periodo}
-\caption{20 misure dei periodi di 10 oscillazioni misurati rispetto alle masse integrali, incertezza $=\pm 0.003$}
 \centering
 \begin{tabular}{ccccccccccc}
   \hline
- $T$ & I & II & III & IV & V & VI & VII & VIII & IX & X \\ 
+ $T$ (\SI{}{s}) & I & II & III & IV & V & VI & VII & VIII & IX & X \\ 
+ ($\pm 0.003$) & & & & & & & & & & \\
   \hline
-1 & 0.000 & 0.000 & 4.970 & 5.580 & 6.180 & 6.710 & 7.160 & 7.670 & 8.000 & 8.540 \\ 
-  2 & 0.000 & 0.000 & 4.870 & 5.500 & 6.030 & 6.670 & 7.170 & 7.600 & 8.090 & 8.430 \\ 
-  3 & 0.000 & 0.000 & 4.890 & 5.590 & 6.090 & 6.730 & 7.170 & 7.530 & 8.000 & 8.470 \\ 
-  4 & 0.000 & 0.000 & 4.900 & 5.540 & 6.150 & 6.700 & 7.140 & 7.630 & 8.000 & 8.490 \\ 
+ & 0.000 & 0.000 & 4.970 & 5.580 & 6.180 & 6.710 & 7.160 & 7.670 & 8.000 & 8.540 \\ 
+  & 0.000 & 0.000 & 4.870 & 5.500 & 6.030 & 6.670 & 7.170 & 7.600 & 8.090 & 8.430 \\ 
+   & 0.000 & 0.000 & 4.890 & 5.590 & 6.090 & 6.730 & 7.170 & 7.530 & 8.000 & 8.470 \\ 
+   & 0.000 & 0.000 & 4.900 & 5.540 & 6.150 & 6.700 & 7.140 & 7.630 & 8.000 & 8.490 \\ 
   5 & 0.000 & 0.000 & 4.840 & 5.630 & 6.100 & 6.720 & 7.240 & 7.670 & 7.950 & 8.470 \\ 
-  6 & 0.000 & 0.000 & 4.830 & 5.560 & 6.100 & 6.730 & 7.180 & 7.620 & 7.870 & 8.490 \\ 
-  7 & 0.000 & 0.000 & 4.830 & 5.650 & 6.090 & 6.720 & 7.160 & 7.660 & 8.010 & 8.470 \\ 
-  8 & 0.000 & 0.000 & 4.960 & 5.590 & 6.070 & 6.690 & 7.200 & 7.610 & 8.010 & 8.470 \\ 
-  9 & 0.000 & 0.000 & 4.920 & 5.540 & 6.090 & 6.690 & 7.210 & 7.570 & 7.970 & 8.500 \\ 
+   & 0.000 & 0.000 & 4.830 & 5.560 & 6.100 & 6.730 & 7.180 & 7.620 & 7.870 & 8.490 \\ 
+   & 0.000 & 0.000 & 4.830 & 5.650 & 6.090 & 6.720 & 7.160 & 7.660 & 8.010 & 8.470 \\ 
+   & 0.000 & 0.000 & 4.960 & 5.590 & 6.070 & 6.690 & 7.200 & 7.610 & 8.010 & 8.470 \\ 
+   & 0.000 & 0.000 & 4.920 & 5.540 & 6.090 & 6.690 & 7.210 & 7.570 & 7.970 & 8.500 \\ 
   10 & 0.000 & 0.000 & 4.970 & 5.520 & 6.000 & 6.670 & 7.180 & 7.600 & 7.970 & 8.530 \\ 
-  11 & 0.000 & 0.000 & 4.970 & 5.530 & 6.090 & 6.740 & 7.220 & 7.680 & 7.980 & 8.530 \\ 
-  12 & 0.000 & 0.000 & 4.920 & 5.590 & 6.030 & 6.710 & 7.130 & 7.610 & 8.060 & 8.540 \\ 
-  13 & 0.000 & 0.000 & 4.970 & 5.570 & 6.060 & 6.700 & 7.190 & 7.580 & 8.010 & 8.460 \\ 
-  14 & 0.000 & 0.000 & 4.860 & 5.590 & 6.050 & 6.660 & 7.190 & 7.580 & 7.990 & 8.460 \\ 
+   & 0.000 & 0.000 & 4.970 & 5.530 & 6.090 & 6.740 & 7.220 & 7.680 & 7.980 & 8.530 \\ 
+   & 0.000 & 0.000 & 4.920 & 5.590 & 6.030 & 6.710 & 7.130 & 7.610 & 8.060 & 8.540 \\ 
+   & 0.000 & 0.000 & 4.970 & 5.570 & 6.060 & 6.700 & 7.190 & 7.580 & 8.010 & 8.460 \\ 
+   & 0.000 & 0.000 & 4.860 & 5.590 & 6.050 & 6.660 & 7.190 & 7.580 & 7.990 & 8.460 \\ 
   15 & 0.000 & 0.000 & 4.830 & 5.460 & 6.030 & 6.740 & 7.220 & 7.710 & 7.970 & 8.560 \\ 
-  16 & 0.000 & 0.000 & 4.930 & 5.590 & 6.100 & 6.720 & 7.130 & 7.620 & 7.990 & 8.470 \\ 
-  17 & 0.000 & 0.000 & 4.990 & 5.430 & 6.050 & 6.650 & 7.190 & 7.590 & 8.010 & 8.430 \\ 
-  18 & 0.000 & 0.000 & 4.930 & 5.500 & 6.070 & 6.680 & 7.130 & 7.690 & 8.030 & 8.490 \\ 
-  19 & 0.000 & 0.000 & 4.860 & 5.570 & 6.030 & 6.710 & 7.210 & 7.630 & 7.980 & 8.470 \\ 
+   & 0.000 & 0.000 & 4.930 & 5.590 & 6.100 & 6.720 & 7.130 & 7.620 & 7.990 & 8.470 \\ 
+   & 0.000 & 0.000 & 4.990 & 5.430 & 6.050 & 6.650 & 7.190 & 7.590 & 8.010 & 8.430 \\ 
+   & 0.000 & 0.000 & 4.930 & 5.500 & 6.070 & 6.680 & 7.130 & 7.690 & 8.030 & 8.490 \\ 
+   & 0.000 & 0.000 & 4.860 & 5.570 & 6.030 & 6.710 & 7.210 & 7.630 & 7.980 & 8.470 \\ 
   20 & 0.000 & 0.000 & 4.930 & 5.570 & 6.030 & 6.670 & 7.160 & 7.640 & 8.100 & 8.440 \\ 
 \hline
 \end{tabular}
@@ -665,12 +711,13 @@ I & 77.70 \\
 
 
 \begin{table}[h]
-\caption{5 misure dell'allungamento della molla sotto l'effetto della forza peso esercitata dalle masse integrali, incertezza $=\pm 0.5$}
+\caption{5 misure dell'allungamento della molla sotto l'effetto della forza peso esercitata dalle masse integrali}
 \label{tab:metodo2_allungamento}
 \centering
 \begin{tabular}{ccccccccccc}
   \hline
- $x_{eq}$ & I & II & III & IV & V & VI & VII & VIII & IX & X \\ 
+ $x_{eq}$ (\SI{}{mm}) & I & II & III & IV & V & VI & VII & VIII & IX & X \\ 
+  ($\pm 0.5$) & & & & & & & & & & \\
   \hline
 1 & 0.0 & 0.0 & 7.5 & 24.0 & 42.0 & 58.5 & 76.0 & 92.0 & 110.0 & 126.0 \\ 
   2 & 0.0 & 0.0 & 7.5 & 24.5 & 41.5 & 58.0 & 75.5 & 92.0 & 110.0 & 125.5 \\ 
