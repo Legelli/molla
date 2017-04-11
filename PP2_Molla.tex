@@ -17,7 +17,7 @@
 \usepackage{float}
 \usepackage{esvect} %vettori
 \usepackage{longtable} %tabelle lunghe
-\usepackage{caption}
+
 
 \setcounter{section}{-1}
 
@@ -151,7 +151,6 @@ Misuriamo quindi la massa complessiva prima di $5$ e poi di $10$ campioni usando
 \caption{Istogramma periodo oscillazione di 5 dischetti}
 \label{fig:ist_5dischi}
 \includegraphics[scale=0.6]{istogramma_5_dischi.eps}
-
 \caption{Istogramma periodo oscillazione di 10 dischetti}
 \label{fig:ist_10dischi}
 \includegraphics[scale=0.6]{istogramma_10_dischi.eps}
@@ -274,10 +273,6 @@ e l'accelerazione gravitazionale da
 \end{figure}
 
 
-
-
-
-
 Per il calcolo di $\alpha_1$, scegliamo sulla retta interpolatrice (figura~\ref{fig:periodoquadro-massa}) i seguenti punti
 	\begin{align*}
 	m_1 = \SI{180.00}{g}, \qquad & T^2_1 = \SI{0.20}{s^2}; \\
@@ -336,6 +331,52 @@ Riteniamo che la causa principale della discrepanza dei valori trovati con i \em
 ove osserviamo che l'accelerazione di gravità è in accordo con il \emph{valore vero} di~\SI{9.81}{m/s^2}.
 
 Infine, sottolineiamo che con meno di tre dischetti appesi alla molla non è stato possibile compiere misure né di allungamento né di periodo, in quanto essa non si è deformata: deduciamo che appendendo uno o due dischetti ci troviamo al di sotto della \emph{soglia di discriminazione}, per cui la molla non reagisce allo stimolo applicato.
+
+
+%============= BONUS ====================
+\subsection{Massa e periodo iniziali}
+A partire dal grafico riportato nella figura~\ref{fig:periodoquadro-massa}, risulta facile, attraverso l'equazione 
+\begin{equation}
+T^2=\frac{4\pi^2m_0}{k}+\frac{4\pi^2m}{k}=T_0^2+\alpha_1m
+\end{equation}
+ricavare la massa iniziale $m_0$ del sistema. Essendo $T_0^2$ l'intercetta del grafico, esso può essere ricavato   attraverso l'equazione \[
+\frac{m-m_1}{m_2-m_1}=\frac{T^2-T_1^2}{T_2^2-T_1^2}
+\]
+dove $(m_1,T_1^2) $ e $(m_2,T_2^2)$ sono due punti\footnote{Per comodità verrano riutilizzati quelli presi in precedenza per ottenere il valore della costante elastica della molla} sulla retta di regressione lineare.
+L'equazione precedente può essere riscritta in modo da esplicitare $T^2$ e, di conseguenza, $T_0^2$:\[
+T^2=\frac{T_2^2-T_1^2}{m_2-m_1}m+\frac{m_2T_1^2-m_1T_2^2}{m_2-m_1}\qquad\Longrightarrow\qquad T_0^2= \frac{m_2T_1^2-m_1T_2^2}{m_2-m_1}
+\]
+Per quanto riguarda l'incertezza da associare a $T_0^2$ essa si ricava derivando l'equazione \ref{eqn:periodo_0} rispetto alle componenti $T_1^2$, $T_2^2$, $m_1$ ed $m_2$: \begin{align}
+&\frac{\partial T_0^2}{\partial T_1^2}=\frac{m_2}{m_2-m_1}\notag\\
+&\frac{\partial T_0^2}{\partial T_2^2}=\frac{-m_1}{m_2-m_1}\notag\\
+&\frac{\partial T_0^2}{\partial m_1}=\frac{-m_2\left(T_2^2-T_1^2\right)}{(m_2-m_1)^2}\notag\\
+&\frac{\partial T_0^2}{\partial m_2}=\frac{m_1\left(T_2^2-T_1^2\right)}{(m_2-m_1)^2}\notag
+\end{align}
+e sommando in quadratura: \begin{align}
+&\delta T_0^2=\sqrt{\left(\frac{\partial T_0^2}{\partial T_1^2}\delta T_1^2\right)^2+\left(\frac{\partial T_0^2}{\partial T_2^2}\delta T_2^2\right)^2 +\left(\frac{\partial T_0^2}{\partial m_1}\delta m_1\right)^2 + \left(\frac{\partial T_0^2}{\partial m_2}\delta m_2\right)^2}\\
+&\text{dove: }\notag\\
+&\delta T_1^2=2T_1\delta_{T_1} \notag\\
+&\delta T_2^2=2T_2\delta_{T_2} \notag\\
+&\delta m_1=\delta m_2 = 0.03\,g \notag
+\end{align}
+Segue che:\[
+\boxed{\textbf{$T_0^2$ = {\SI{0.04 \pm 0.001}{s^2}}}}
+\]
+Risultato concorde con al valore trovato utilizzando l'algoritmo di interpolazione del software di elaborazione statistica \emph{R} con il quale si ricava, per l'intercetta $T_0^2$ il valore di $0.036 \pm 0.001$. 
+Possiamo ora invertire l'equazione\ref{eqn:14} per ottenere il valore iniziale della massa: \[
+m_0=\frac{kT_0^2}{4\pi^2}
+\] 
+L'incertezza da associare a tale valore, $\delta m_0$ si ricava derivando rispetto a $k$ e $T_0^2$ l'equazione precedente:\begin{align}
+&\frac{\partial m_0}{\partial T_0^2}=\frac{k}{4\pi^2}\notag\\
+&\frac{\partial m_0}{\partial k}=\frac{T_0^2}{4\pi^2}\notag
+\end{align}
+Da cui l'incertezza:\[
+\delta m_0=\sqrt{\left(\frac{\partial m_0}{\partial T_0^2}\delta T_O^2\right)^2 + \left(\frac{\partial m_0}{\partial k}\delta k\right)^2}\qquad\text{dove:}\qquad\delta k=\SI{0.1}{\frac{N}{m}}=\SI{100}{\frac{g}{s^2}}
+\]
+Si arriva dunque al valore iniziale della massa $m_0$:\[
+\boxed{\textbf{$m_0^2$ = {\SI{45.0 \pm 1.4}{g}}}}
+\]
+
 
 
 %============= CONSIDERAZIONI FINALI ====================
@@ -468,12 +509,12 @@ C'è inoltre da ricordare che quanto detto nella sezione \ref{sec:description} è 
 
 
 \begin{table}[h]
-\caption{K e g ricavate da 5 misure di 50 oscillazioni}
+\caption{k e g ricavate da 5 misure di 50 oscillazioni}
 \label{tab:k_g}
 \centering
 \begin{tabular}{ccc}
   \hline
- & K 50 oscillazioni & g 50 oscillazioni \\ 
+ & k 50 oscillazioni & g 50 oscillazioni \\ 
   \hline
 1 & 46.8 & 9.84 \\ 
   2 & 46.6 & 9.74 \\ 
@@ -489,17 +530,17 @@ C'è inoltre da ricordare che quanto detto nella sezione \ref{sec:description} è 
 
 \begin{center}
 \begin{longtable}{ccc}
-\label{tab:K_g2}\\
-\caption{K e g ricavate da 50 misure di 5 oscillazioni}\\
+\label{tab:k_g2}\\
+\caption{k e g ricavate da 50 misure di 5 oscillazioni}\\
 \hline
- & K & g\\
+ & k & g\\
  & \SI{ \pm 1}{N/m} & \SI{ \pm 1}{m/s^2} \\ %Da correggere
 \hline
 \endfirsthead
 \multicolumn{3}{r}
 {\tablename\ \thetable\ } \\[0.3cm]
 %\hline
-% & K & g\\
+% & k & g\\
  \hline
 \endhead
 \hline 
