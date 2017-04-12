@@ -214,7 +214,7 @@ Confrontando i risultati è evidente che le incertezze sui periodi calcolati a pa
 \begin{equation}\label{eq:delta_T}
 	\delta_{\Delta (\bar{T}^2)}^2 = 4\left(\left(\bar{T_2}\frac{\sigma_{T_1}}{N}\right)^2 + \left(\bar{T_1}\frac{\sigma_{T_2}}{N}\right)^2 + \left(\bar{T_1}^2 + \bar{T_2}^2\right) u_T^2 \right),
 \end{equation}
-nelle quali l'incertezza sulle masse è data dalla sola incertezza strumentale per quanto detto prima sulla sensibilità della bilancia usata, mentre con $\sigma_{T_1}, \sigma_{T_2}$ abbiamo indicato le deviazioni standard sulle oscillazioni dei 5 e 10 campioni, con $N$ si intende il numero di misure effettuate. 
+nelle quali l'incertezza sulle masse è data dalla sola incertezza strumentale per quanto detto prima sulla sensibilità della bilancia usata, mentre con $\sigma_{T_1}, \sigma_{T_2}$ abbiamo indicato le deviazioni standard sulle oscillazioni dei 5 e 10 campioni, con $N$ si intende il numero di misure effettuate. È bene inoltre specificare che con $\bar{T}^2$ si intende il quadrato della media e non la media dei quadrati.
 
 Dall'equazione (\ref{eq:delta_k}) ricaviamo
 \begin{align*}
@@ -236,9 +236,9 @@ Attraverso l'equazione (\ref{eq:g_vero}) possiamo calcolare l'accelerazione grav
 \end{align*}
 L'incertezza su queste misure indirette è data da
 \begin{equation}\label{eq:delta_g}
-	\delta_g = g\sqrt{\left(\frac{\delta_{\Delta x}}{\Delta x} \right)^2 + \left( \frac{\delta_{\Delta (\bar{T}^2)}}{\Delta (\bar{T}^2)} \right)^2}
+	\delta_g = g\sqrt{\left(\frac{\delta_{\Delta x}}{\Delta x} \right)^2 + \left( \frac{\delta_{\Delta \left(\bar{T}^2\right)}}{\Delta \left(\bar{T}^2\right)} \right)^2}
 \end{equation}
-dove $\delta_{\Delta (\bar{T})^2}$ è quello di (\ref{eq:delta_T}), mentre
+dove $\delta_{\Delta \left(\bar{T}^2\right)}$ è quello di (\ref{eq:delta_T}), mentre
 \[
 	\delta^2_{\Delta x} = \frac{\sigma_{x_1}^2}{5} + \frac{\sigma_{x_2}^2}{5} + 2 u_x^2
 \] con $\sigma_{x_1}, \sigma_{x_2}$ le deviazioni standard sugli allungamenti con 5 e 10 campioni.
@@ -352,7 +352,7 @@ Per il calcolo di $\alpha_2$, scegliamo invece sulla retta interpolatrice (figur
 	\end{align*}
 dunque $\alpha_2 = \SI{215.1 \pm 0.9}{mm/g}$. Analogamente al caso precedente, l'incertezza su questo valore è stata calcolata con
 	\[
-	\sigma_{\alpha_2} = \sqrt{\left(\frac{\sigma_{\Delta x}}{\Delta x}\right)^2 + \left(\frac{\sigma_{\Delta m}}{\Delta m}\right)^2} \cdot \alpha_2,
+	\sigma_{\alpha_2} = \alpha_2 \sqrt{\left(\frac{\sigma_{\Delta x}}{\Delta x}\right)^2 + \left(\frac{\sigma_{\Delta m}}{\Delta m}\right)^2}  ,
 	\]
 dove $\Delta x = x_2 - x_1$, $\Delta m = m_2 - m_1$, l'incertezza su $\Delta m$ è la medesima usata nel calcolo sopra e 
 	\[
@@ -400,17 +400,19 @@ Per quanto riguarda l'incertezza da associare a $T_0^2$ essa si ricava derivando
 &\frac{\partial T_0^2}{\partial m_2}=\frac{m_1\left(T_2^2-T_1^2\right)}{(m_2-m_1)^2}\notag
 \end{align}
 e sommando in quadratura: \begin{align}
-&\delta T_0^2=\sqrt{\left(\frac{\partial T_0^2}{\partial T_1^2}\delta T_1^2\right)^2+\left(\frac{\partial T_0^2}{\partial T_2^2}\delta T_2^2\right)^2 +\left(\frac{\partial T_0^2}{\partial m_1}\delta m_1\right)^2 + \left(\frac{\partial T_0^2}{\partial m_2}\delta m_2\right)^2}\\
-&\text{dove: }\notag\\
-&\delta T_1^2=2T_1\delta_{T_1} \notag\\
-&\delta T_2^2=2T_2\delta_{T_2} \notag\\
-&\delta m_1=\delta m_2 = 0.03\,g \notag
+&\delta T_0^2=\sqrt{\left(\frac{\partial T_0^2}{\partial T_1^2}\delta T_1^2\right)^2+\left(\frac{\partial T_0^2}{\partial T_2^2}\delta T_2^2\right)^2 +\left(\frac{\partial T_0^2}{\partial m_1}\delta m_1\right)^2 + \left(\frac{\partial T_0^2}{\partial m_2}\delta m_2\right)^2}
+\end{align}
+dove
+\begin{align}\label{eq:delta_T_bonus}
+&\delta T_1^2=2T_1\sqrt{\sigma_T^2 + u_T^2}  \\
+&\delta T_2^2=2T_2\sqrt{\sigma_T^2 + u_T^2} \notag\\
+&\delta m_1=\delta m_2 = u_m \notag
 \end{align}
 Segue che:\[
-\boxed{\textbf{$T_0^2$ = {\SI{0.04 \pm 0.001}{s^2}}}}
+\boxed{\textbf{$T_0^2$ = {\SI{0.04 \pm 0.001}{s^2}}}},
 \]
-Risultato concorde con al valore trovato utilizzando l'algoritmo di interpolazione del software di elaborazione statistica \emph{R} con il quale si ricava, per l'intercetta $T_0^2$ il valore di \SI{0.036 \pm 0.001}{s^2}. 
-Possiamo ora invertire l'equazione~\ref{eqn:periodoquadro_massa} per ottenere il valore della massa della molla: \[
+risultato concorde con al valore trovato utilizzando l'algoritmo di interpolazione del software di elaborazione statistica \emph{R} con il quale si ricava, per l'intercetta $T_0^2$ il valore di \SI{0.036 \pm 0.001}{s^2}. 
+Possiamo ora invertire l'equazione~(\ref{eqn:periodoquadro_massa}) per ottenere il valore della massa della molla: \[
 m_0=\frac{kT_0^2}{4\pi^2}
 \] 
 L'incertezza $\delta m_0$ da associare a tale valore si ricava derivando rispetto a $k$ e $T_0^2$ l'equazione precedente:\begin{align}
@@ -418,9 +420,10 @@ L'incertezza $\delta m_0$ da associare a tale valore si ricava derivando rispett
 &\frac{\partial m_0}{\partial k}=\frac{T_0^2}{4\pi^2}\notag.
 \end{align}
 Da cui l'incertezza:\[
-\delta m_0=\sqrt{\left(\frac{\partial m_0}{\partial T_0^2}\delta T_0^2\right)^2 + \left(\frac{\partial m_0}{\partial k}\delta k\right)^2}.%\qquad\text{dove:}\qquad\delta k=\SI{0.1}{\frac{N}{m}}=\SI{100}{\frac{g}{s^2}}
+\delta m_0=\sqrt{\left(\frac{\partial m_0}{\partial T_0^2}\delta T_0^2\right)^2 + \left(\frac{\partial m_0}{\partial k}\delta k\right)^2},%\qquad\text{dove:}\qquad\delta k=\SI{0.1}{\frac{N}{m}}=\SI{100}{\frac{g}{s^2}}
 \]
-Si arriva dunque al valore cercato:
+dove con $\delta T_0^2$ si intende quella in (\ref{eq:delta_T_bonus}) e con $\delta k$ quella calcolata nella sezione \ref{subsec:metodo2}.
+Si arriva dunque alla stima cercata:
 \[
 \boxed{\textbf{$m_0$ = {\SI{45.0 \pm 1.4}{g}}}}.
 \]
@@ -430,7 +433,9 @@ Si arriva dunque al valore cercato:
 %============= CONSIDERAZIONI FINALI ====================
 \section{Considerazioni finali}
 \label{sec:c_finali}
-A questa latitudine, esperimenti ben più complessi e precisi hanno dato all'accelerazione $g$ il valore approssimato di \SI{9.81}{m/s^2}; i nostri risultati sono tutti compatibili con tale misura ad eccezione di quello ricavato partendo dal tempo di $5$ oscillazioni, nonostante sia anche quello con incertezza relativa maggiore (1.22~\%); tale discrepanza può essere spiegata da un'eventuale errore sistematico nella lettura dell'allungamento della molla dalla posizione di riposo: eventuali errori casuali sarebbero stati, infatti, assorbiti dalla media. Con sicurezza possiamo affermare, infatti, che la maggior parte dell'incertezza provenga dal metodo con cui abbiamo calcolato gli allungamenti: per quanto possa essere difficile stimare ``ad occhio'' la posizione di massima distanza dalla posizione di equilibrio, ripetendo numerose volte la misura le stime per eccesso hanno, in teoria, compensato quelle per difetto, per cui è difficile che sia questa la causa di tali valori.
+A questa latitudine, esperimenti ben più complessi e precisi hanno dato all'accelerazione $g$ il valore approssimato di \SI{9.807}{m/s^2}; i nostri risultati sono tutti compatibili con tale misura ad eccezione di quello ricavato partendo dal tempo di $5$ oscillazioni, nonostante sia anche quello con incertezza relativa maggiore (1.22~\%); tale discrepanza può essere spiegata da un'eventuale errore sistematico nella lettura dell'allungamento della molla dalla posizione di riposo: eventuali errori casuali sarebbero stati, infatti, assorbiti dalla media. Con sicurezza possiamo affermare, allora, che la maggior parte dell'incertezza provenga dal metodo con cui abbiamo calcolato gli allungamenti: per quanto possa essere difficile stimare ``ad occhio'' la posizione di massima distanza dalla posizione di equilibrio, ripetendo numerose volte la misura le stime per eccesso hanno, in teoria, compensato quelle per difetto, per cui è difficile che sia questa la causa di tali valori.
+
+Un'ulteriore corruzione dei dati sperimentali è ad opera dell'asse di oscillazione della massa: l'isocronismo delle oscillazioni, assunzione sulla quale abbiamo costruito l'intera esperienza, è un approssimazione valida se l'asse di oscillazione è sempre costante e, soprattutto, l'equazione (\ref{eq:g_vero}) è corretta esclusivamente se tale asse è parallelo alla direzione di $g$; la difficoltà nel lasciar cadere esattamente verticale la massa, in collaborazione con eventuali agenti esterni quali vibrazioni e movimenti d'aria, potrebbe aver contribuito ad eventuali errori sistematici nella misurazione dei periodi. Come gruppo, abbiamo optato per l'utilizzo della squadra a nostra disposizione come supporto per tenere in equilibrio le masse: cercando di tenerla il più orizzontale possibile la si rimuoveva da sotto i campioni con un'accelerazione verticale sufficientemente alta per far sì che il distacco tra la massa e la squadra fosse pressoché \emph{istantaneo} e non imprimesse alcuna preferenza di direzione d'oscillazione al sistema; vari tentativi hanno mostrato che questo metodo era più efficace rispetto all'utilizzo delle mani.
 
 %C'è inoltre da ricordare che quanto detto nella sezione \ref{sec:description} è vero solo in parte: l'indipendenza del periodo dall'ampiezza di oscillazione (proprietà sulla quale abbiamo costruito la nostra esperienza) si verifica esclusivamente in un sistema ideale, cioè in un oscillatore senza attrito; la presenza dell'aria aggiunge invece all'equazione differenziale un termine dissipativo (dipendente dalla velocità) che rende l'oscillatore \emph{smorzato} (in particolare, per via del poco attrito, è uno smorzamento sottocritico): questo rende il periodo non uniforme e non indipendente dall'ampiezza delle oscillazioni. Concludiamo però che tale approssimazione non influisca considerevolmente sulle nostre misure: la presenza di uno smorzamento ha fatto sì che i periodi misurati fossero leggermente più grandi di quelli ideali, il che alla fine implica un'accelerazione gravitazionale più piccola di quella \emph{reale}, ma evidentemente la sovrastima delle distanze di equilibrio (che invece ha avuto l'effetto opposto) è risultata molto più influente, e le nostre stime finali sono leggermente più grandi di quelle che ci saremmo aspettati.
 
