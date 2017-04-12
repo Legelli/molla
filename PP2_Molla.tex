@@ -331,7 +331,7 @@ dove
 	\[
 	\sigma^2_{\Delta(T^2)} = (2T_2\delta_{T_2})^2 + (2T_1\delta_{T_1})^2,
 	\]
-usando come incertezza sul periodo $\delta_T = 10^{-1}\sqrt{(\sigma_T/\sqrt{20})^2 + u_T^2}$  (con $\sigma_T$ la deviazione standard del punto sperimentale più vicino al punto della retta scelto e $u_T$ l'incertezza strumentale sul periodo), e 
+usando come incertezza sul periodo $\delta_T = 10^{-1}\sqrt{\left(\sigma_T/\sqrt{20}\right)^2 + u_T^2}$  (con $\sigma_T$ la deviazione standard del punto sperimentale più vicino al punto della retta scelto\footnote{In particolare sono stati scelti i periodi associati a 3 e a 10 masse, con una varianza di \SI{0.003}{s^2} sul primo e \SI{0.001}{s^2} sul secondo.} e $u_T$ l'incertezza strumentale sul periodo), e 
 	\[
 	\sigma^2_{\Delta m} = 2\sigma_m^2
 	\] 
@@ -379,7 +379,7 @@ Infine, sottolineiamo che con meno di tre dischetti appesi alla molla non è stat
 
 
 %============= BONUS ====================
-\subsection{Massa e periodo propri}
+\subsection{Massa propria}
 A partire dal grafico riportato nella figura~\ref{fig:periodoquadro-massa}, attraverso l'equazione 
 \begin{equation}\label{eqn:periodoquadro_massa}
 T^2=\frac{4\pi^2m_0}{k}+\frac{4\pi^2m}{k}=T_0^2+\alpha_1m,
@@ -388,7 +388,7 @@ T^2=\frac{4\pi^2m_0}{k}+\frac{4\pi^2m}{k}=T_0^2+\alpha_1m,
 \[
 \frac{m-m_1}{m_2-m_1}=\frac{T^2-T_1^2}{T_2^2-T_1^2}
 \]
-dove $(m_1,T_1^2) $ e $(m_2,T_2^2)$ sono due punti\footnote{Per comodità verrano riutilizzati quelli presi in precedenza per ottenere il valore della costante elastica della molla e di $g$.} sulla retta di regressione lineare.
+dove $(m_1,T_1^2) $ e $(m_2,T_2^2)$ sono due punti\footnote{Per comodità, verrano riutilizzati quelli presi in precedenza per ottenere il valore della costante elastica della molla nella sezione \ref{subsec:metodo2}.} sulla retta di regressione lineare.
 L'equazione precedente può essere riscritta in modo da esplicitare $T^2$ e, di conseguenza, $T_0^2$:
 \begin{equation}\label{eqn:periodo_0}
 T^2=\frac{T_2^2-T_1^2}{m_2-m_1}m+\frac{m_2T_1^2-m_1T_2^2}{m_2-m_1}\qquad\Longrightarrow\qquad T_0^2= \frac{m_2T_1^2-m_1T_2^2}{m_2-m_1}
@@ -399,18 +399,19 @@ Per quanto riguarda l'incertezza da associare a $T_0^2$ essa si ricava derivando
 &\frac{\partial T_0^2}{\partial m_1}=\frac{-m_2\left(T_2^2-T_1^2\right)}{(m_2-m_1)^2}\notag\\
 &\frac{\partial T_0^2}{\partial m_2}=\frac{m_1\left(T_2^2-T_1^2\right)}{(m_2-m_1)^2}\notag
 \end{align}
-e sommando in quadratura: \begin{align}
+e sommando in quadratura: \begin{align}\label{eq:delta_T0_quadro}
 &\delta T_0^2=\sqrt{\left(\frac{\partial T_0^2}{\partial T_1^2}\delta T_1^2\right)^2+\left(\frac{\partial T_0^2}{\partial T_2^2}\delta T_2^2\right)^2 +\left(\frac{\partial T_0^2}{\partial m_1}\delta m_1\right)^2 + \left(\frac{\partial T_0^2}{\partial m_2}\delta m_2\right)^2}
 \end{align}
 dove
 \begin{align}\label{eq:delta_T_bonus}
-&\delta T_1^2=2T_1\sqrt{\sigma_T^2 + u_T^2}  \\
-&\delta T_2^2=2T_2\sqrt{\sigma_T^2 + u_T^2} \notag\\
+&\delta T_1^2=2T_1\sqrt{\sigma_{T_1}^2 + u_T^2}  \notag\\
+&\delta T_2^2=2T_2\sqrt{\sigma_{T_2}^2 + u_T^2} \notag\\
 &\delta m_1=\delta m_2 = u_m \notag
 \end{align}
-Segue che:\[
-\boxed{\textbf{$T_0^2$ = {\SI{0.04 \pm 0.001}{s^2}}}},
-\]
+Segue che
+\begin{equation}\label{eq:T0}
+T_0^2 = \SI{0.04 \pm 0.07}{s^2},
+\end{equation}
 risultato concorde con al valore trovato utilizzando l'algoritmo di interpolazione del software di elaborazione statistica \emph{R} con il quale si ricava, per l'intercetta $T_0^2$ il valore di \SI{0.036 \pm 0.001}{s^2}. 
 Possiamo ora invertire l'equazione~(\ref{eqn:periodoquadro_massa}) per ottenere il valore della massa della molla: \[
 m_0=\frac{kT_0^2}{4\pi^2}
@@ -422,10 +423,10 @@ L'incertezza $\delta m_0$ da associare a tale valore si ricava derivando rispett
 Da cui l'incertezza:\[
 \delta m_0=\sqrt{\left(\frac{\partial m_0}{\partial T_0^2}\delta T_0^2\right)^2 + \left(\frac{\partial m_0}{\partial k}\delta k\right)^2},%\qquad\text{dove:}\qquad\delta k=\SI{0.1}{\frac{N}{m}}=\SI{100}{\frac{g}{s^2}}
 \]
-dove con $\delta T_0^2$ si intende quella in (\ref{eq:delta_T_bonus}) e con $\delta k$ quella calcolata nella sezione \ref{subsec:metodo2}.
-Si arriva dunque alla stima cercata:
+dove con $\delta T_0^2$ si intende quella in (\ref{eq:T0}) calcolata con (\ref{eq:delta_T0_quadro}) e con $\delta k$ quella calcolata nella sezione \ref{subsec:metodo2}.
+Si arriva dunque alla stima della massa propria della molla:
 \[
-\boxed{\textbf{$m_0$ = {\SI{45.0 \pm 1.4}{g}}}}.
+\boxed{\textbf{$m_0$ = {\SI{45.0 \pm 0.08}{g}}}}.
 \]
 
 
